@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.equalTo;
 
 
 class MobileBankApiTestV1 {
@@ -20,6 +21,8 @@ class MobileBankApiTestV1 {
                 // Проверки
                 .then()
                 .statusCode(200)
+                .body("[1].currency", equalTo("USD"))
+                .body("[0].currency", equalTo("RUS"))
         ;
     }
 }
