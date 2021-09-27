@@ -22,7 +22,7 @@ class MobileBankApiTestV1 {
                 .then()
                 .statusCode(200)
                 .body("[1].currency", equalTo("USD"))
-                .body("[0].currency", equalTo("RUS"))
+                .body("[0].currency", equalTo("RUB"))
         ;
     }
 }
