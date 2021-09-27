@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 
 
 import static io.restassured.RestAssured.*;
-import static io.restassured.module.jsv.JsonSchemaValidator.*;
-import static org.apache.commons.codec.digest.UnixCrypt.*;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 
 
 class MobileBankApiTestV1 {
@@ -20,8 +19,8 @@ class MobileBankApiTestV1 {
                 .get("/demo/accounts")
                 // Проверки
                 .then()
-                .statusCode(200);
-        .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
+                .statusCode(200)
+                .body(matchesJsonSchemaInClasspath("accounts.schema.json"))
         ;
     }
 }
